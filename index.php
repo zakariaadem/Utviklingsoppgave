@@ -6,9 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- koble til css fil -->
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
+    <!-- koble til opprett side -->
+    <a href="opprett.php">Opprett</a>
+
     <?php
     // Koble til connection side for å koble til databasen
     include "connection.php";
@@ -30,7 +35,7 @@
         $endre_epost = $_POST['e_post_rad'];
         $endre_stilling = $_POST['stilling_rad'];
         $sql_update = "UPDATE ansatte SET navn='$endre_navn', mobil='$endre_mobil', jobb='$endre_jobb', 
-epost='$endre_epost', stilling='$endre_stilling' WHERE ansatte_id = '$ansatteid'";
+        epost='$endre_epost', stilling='$endre_stilling' WHERE ansatte_id = '$ansatteid'";
         $result = $kobling->query($sql_update);
     }
     //Endre info Funksjon//
@@ -51,7 +56,7 @@ epost='$endre_epost', stilling='$endre_stilling' WHERE ansatte_id = '$ansatteid'
 
     // Lage tabell
     echo "<div id='mother_div'>";
-    echo "<table id='verktoytabell'>";
+    echo "<table id='info_tabel'>";
     echo "<tr>";
     echo "<th>Navn</th>";
     echo "<th>Mobil</th>";
@@ -59,6 +64,7 @@ epost='$endre_epost', stilling='$endre_stilling' WHERE ansatte_id = '$ansatteid'
     echo "<th>E-post</th>";
     echo "<th>Stilling</th>";
     echo "<th>Avdeling</th>";
+    echo "<th>Bilde</th>";
     echo "<th>Slett Ansatt</th>";
     echo "<th>Lagre Endringer</th>";
     echo "</tr>";
@@ -72,6 +78,8 @@ epost='$endre_epost', stilling='$endre_stilling' WHERE ansatte_id = '$ansatteid'
         $Stilling = $rad["stilling"];
         $Avdeling_id = $rad["avdeling_id"];
         $Avdeling_navn = $rad["avdeling_navn"];
+        $Bilde = $rad["bilder"];
+        $vis_bilde = "/img/$Bilde";
 
         echo "<form method='POST'>";
         echo "<tr>";
@@ -102,6 +110,7 @@ epost='$endre_epost', stilling='$endre_stilling' WHERE ansatte_id = '$ansatteid'
         }
         echo "</select>";
         echo "</td>";
+        echo "<td><img src='$vis_bilde' alt=''></td>";
         echo "<td>  <button class='slett_knapp' type='button' value='$Ansatte_id'> Slett </button>  </td>";
         echo "<td> <button name='lagre_knapp' class='lagre_knapp'>Lagre</button></td>";
         echo "<td>";
