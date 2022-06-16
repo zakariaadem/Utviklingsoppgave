@@ -1,8 +1,135 @@
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    width: 100%;
-    height: 100%;
-    table-layout: fixed;
-    text-align: center;
+/* css for hele body-en*/
+body {
+  background-color: #ffffff;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* css for table, table header, table data og tabel row*/
+table,
+th,
+td,
+tr {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 100%;
+  height: 100%;
+  table-layout: fixed;
+  text-align: center;
+  font-family: 'Montserrat';
+  height: 4vh;
+  background-color: rgba(4, 111, 146, 0.582);
+  color: #f2f2f2;
+  font-size: 20px;
+}
+
+/* css for når sveve over tabel data*/
+tr:hover{
+  background-color: rgb(255, 25, 0);
+}
+
+/* css for meny-en, overst del på side*/
+#meny {
+  width: 100%;
+  height: 75px;
+  background-color: rgba(4, 111, 146, 0.582);
+  display: flex;
+}
+
+/* css for a link div*/
+#opprett_link_div {
+  width: 8%;
+  height: 70%;
+  background-color: rgba(0, 0, 0, 0.288);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 35px;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-family: 'Montserrat';
+
+}
+
+/* css for a link*/
+.a_link_opprett {
+  text-decoration: none;
+  color: #ffffff;
+
+}
+
+/* css for når du sveve over a link*/
+.a_link_opprett:hover {
+  font-size: larger;
+}
+
+/* css for når du trykke på slett knappen*/
+.modal::backdrop {
+  background: rgb(0 0 0 / 0.6);
+}
+
+/* css for slett knapp som kommer etter du trykker på den første slett knappen*/
+.slett_button {
+  cursor: pointer;
+}
+
+/* css for avbryt knapp som kommer etter du trykker på den første slett knappen*/
+.avbryt_button {
+  cursor: pointer;
+}
+
+/* css for alle tr som er input felt*/
+.data {
+  background-color: rgba(4, 111, 146, 0.582);
+  border-width: 0px;
+  text-align: center;
+  font-family: 'Montserrat';
+  font-size: 17px;
+  color: #ffffff;
+  width: 95%;
+  height: 95%;
+}
+
+/* css for slett knapp*/
+.slett_knapp {
+  width: 80%;
+  height: 80%;
+  font-size: 20px;
+  font-family: 'Montserrat';
+  border-radius: 5px;
+  background-color: #ec0f0fad;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* css for lagre knapp*/
+.lagre_knapp {
+  width: 80%;
+  height: 80%;
+  font-size: 20px;
+  font-family: 'Montserrat';
+  border-radius: 5px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+
+/* profil bilder foesvinner etter 2s*/
+#bilder {
+  animation: bilder 0s ease-in 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes bilder {
+  to {
+    visibility: hidden;
+    width: 0;
+    height: 0;
   }
+}

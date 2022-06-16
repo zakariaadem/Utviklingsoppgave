@@ -6,13 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- En link for å hente font fra google  -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <!-- koble til css fil -->
     <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
     <!-- koble til opprett side -->
-    <a href="opprett.php">Opprett</a>
+    <div id="meny">
+        <div id="opprett_link_div">
+            <a class="a_link_opprett" href="opprett.php">Opprett Ny Ansatte</a>
+        </div>
+    </div>
 
     <?php
     // Koble til connection side for å koble til databasen
@@ -24,7 +30,6 @@
         $sql = "DELETE FROM ansatte WHERE ansatte_id=$ansatteid";
         $resultat = $kobling->query($sql);
     }
-    //Slett Funksjon//
 
     //Endre info Funksjon//
     if (isset($_POST['lagre_knapp']) || isset($_POST['avdeling_rad'])) {
@@ -38,7 +43,6 @@
         epost='$endre_epost', stilling='$endre_stilling' WHERE ansatte_id = '$ansatteid'";
         $result = $kobling->query($sql_update);
     }
-    //Endre info Funksjon//
 
     //Endre avdeling Funksjon//
     if (isset($_POST['avdeling_rad'])) {
@@ -47,7 +51,19 @@
         $sql_update2 = "UPDATE ansatte SET avdeling_id='$avd' WHERE ansatte_id = '$ansatteid'";
         $result2 = $kobling->query($sql_update2);
     }
-    //Endre avdeling Funksjon//
+
+    // Vis profil bilde Funksjon
+    if (isset($_POST['vis_profil_bilde'])) {
+        $ansatteid = $_POST['ansatte_id_rad'];
+        $sql5 = "SELECT bilder FROM ansatte WHERE ansatte_id='$ansatteid'";
+        $result = $kobling->query($sql5);
+
+        while ($rad = $result->fetch_assoc()) {
+            $Bilde = $rad["bilder"];
+            $vis_bilde = "/img/$Bilde";
+            echo "<img id='bilder' src='$vis_bilde' alt=''>";
+        }
+    }
 
     // Hente data fra databasen
     $sql = "SELECT * FROM ansatte LEFT JOIN avdelinger ON ansatte.avdeling_id = avdelinger.avdeling_id";
@@ -65,8 +81,8 @@
     echo "<th>Stilling</th>";
     echo "<th>Avdeling</th>";
     echo "<th>Bilde</th>";
-    echo "<th>Slett Ansatt</th>";
     echo "<th>Lagre Endringer</th>";
+    echo "<th>Slett Ansatt</th>";
     echo "</tr>";
     // Fetch all info fra databasen
     while ($rad = $resultat->fetch_assoc()) {
@@ -110,13 +126,12 @@
         }
         echo "</select>";
         echo "</td>";
-        echo "<td><img src='$vis_bilde' alt=''></td>";
-        echo "<td>  <button class='slett_knapp' type='button' value='$Ansatte_id'> Slett </button>  </td>";
+        echo "<td><button name='vis_profil_bilde' value='$Ansatte_id' class='lagre_knapp'>Vis profil bilde</button</td>";
         echo "<td> <button name='lagre_knapp' class='lagre_knapp'>Lagre</button></td>";
+        echo "<td>  <button class='slett_knapp' type='button' value='$Ansatte_id'> Slett Ansatte </button>  </td>";
         echo "<td>";
         echo "<input type='hidden' name='ansatte_id_rad' value='$Ansatte_id'>";
         echo "</td>";
-
         echo "</tr>";
         echo "</form>";
     }
@@ -152,10 +167,7 @@
     </script>
     <!-- Slett Funksjon -->
 
-
-
-
-
+    
 </body>
 
 </html>

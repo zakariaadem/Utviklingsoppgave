@@ -53,6 +53,7 @@
     ?>
 
     <!-- Input felt som fylles med data -->
+    
     <form method="POST" enctype="multipart/form-data">
         <input type="text" name="navn" class='data' placeholder="Navn">
         <input type="number" name="mobil" class='data' placeholder="Mobil Nummer">
