@@ -23,7 +23,7 @@ tr {
   text-align: center;
   font-family: 'Montserrat';
   height: 4vh;
-  background-color: rgba(4, 111, 146, 0.582);
+  background-color: rgb(114, 139, 250, 0.644);
   color: #f2f2f2;
   font-size: 20px;
 }
@@ -37,13 +37,13 @@ tr:hover{
 #meny {
   width: 100%;
   height: 75px;
-  background-color: rgba(4, 111, 146, 0.582);
+  background-color: rgb(114, 139, 250, 0.644);
   display: flex;
 }
 
 /* css for a link div*/
 #opprett_link_div {
-  width: 8%;
+  width: 10%;
   height: 70%;
   background-color: rgba(0, 0, 0, 0.288);
   display: flex;
@@ -85,7 +85,7 @@ tr:hover{
 
 /* css for alle tr som er input felt*/
 .data {
-  background-color: rgba(4, 111, 146, 0.582);
+  background-color: rgba(114, 139, 250, 0.644);
   border-width: 0px;
   text-align: center;
   font-family: 'Montserrat';

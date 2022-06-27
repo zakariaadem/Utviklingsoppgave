@@ -1,0 +1,120 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+#mother_div {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(114, 139, 250);
+
+}
+
+#form_en {
+    width: 100%;
+    height: 100%;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#lage_ny_ansatte_felt {
+    width: 50%;
+    height: 65%;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.tittel {
+    font-family: 'Montserrat';
+    font-size: 30px;
+}
+
+.lage_ny_ansatte {
+    width: 50%;
+    height: 7%;
+    border-radius: 5px;
+    font-family: 'Montserrat';
+    font-size: 20px;
+}
+
+.lagre_ny_ansatte {
+    width: 50%;
+    height: 9%;
+    border-radius: 5px;
+    font-family: 'Montserrat';
+    font-size: 20px;
+}
+
+#lage_ny_avdeling {
+    width: 50%;
+    height: 25%;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.avdeling_tittel {
+    font-family: 'Montserrat';
+    font-size: 30px;
+}
+
+.lage_ny_avdeling {
+    width: 50%;
+    height: 20%;
+    border-radius: 5px;
+    font-family: 'Montserrat';
+    font-size: 20px;
+}
+
+.lagre_ny_avdeling {
+    width: 51%;
+    height: 23%;
+    border-radius: 5px;
+    font-family: 'Montserrat';
+    font-size: 20px;
+}
+
+#slett_avdeling {
+    width: 50%;
+    height: 25%;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.slett_avdeling_tittel {
+    font-family: 'Montserrat';
+    font-size: 30px;
+}
+
+.slett_avdeling {
+    width: 50%;
+    height: 20%;
+    border-radius: 5px;
+    font-family: 'Montserrat';
+    font-size: 20px;
+}
+
+.slett_avdeling_knapp {
+    width: 50%;
+    height: 22%;
+    border-radius: 5px;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    background-color: #b40b0bc5;
+    color: #ffffff;
+}

@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- En link for å hente font fra google  -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="css\opprett.css">
 </head>
 
 <body>
@@ -53,55 +56,58 @@
     ?>
 
     <!-- Input felt som fylles med data -->
-    
-    <form method="POST" enctype="multipart/form-data">
-        <input type="text" name="navn" class='data' placeholder="Navn">
-        <input type="number" name="mobil" class='data' placeholder="Mobil Nummer">
-        <input type="number" name="jobb" class='data' placeholder="Jobb mobil Nummer">
-        <input type="text" name="epost" class='data' placeholder="E-post">
-        <input type="text" name="stilling" class='data' placeholder="Stilling">
-        <input type="file" name="bilde" class='data' placeholder="Bilde navn.jpg eller png">
+    <div id="mother_div">
+        <form id="form_en" method="POST" enctype="multipart/form-data">
+            <div id="lage_ny_ansatte_felt">
+                <h1 class="tittel">Lag ny ansatte</h1>
+                <input type="text" name="navn" class='lage_ny_ansatte' placeholder="Navn">
+                <input type="number" name="mobil" class='lage_ny_ansatte' placeholder="Mobil Nummer">
+                <input type="number" name="jobb" class='lage_ny_ansatte' placeholder="Jobb mobil Nummer">
+                <input type="text" name="epost" class='lage_ny_ansatte' placeholder="E-post">
+                <input type="text" name="stilling" class='lage_ny_ansatte' placeholder="Stilling">
+                <input type="file" name="bilde" class='lage_ny_ansatte' placeholder="Bilde navn.jpg eller png">
 
-        <!-- Velg en avdeling -->
-        <?php
-        echo "<select class='data' name='avdeling'>";
-        echo "<option value=''>Velg avdeling</option>";
-        $sql2 = "SELECT * FROM avdelinger";
-        $resultat2 = $kobling->query($sql2);
-        while ($rad = $resultat2->fetch_assoc()) {
-            $Avdeling_id2 = $rad["avdeling_id"];
-            $Avdeling_navn2 = $rad["avdeling_navn"];
-            echo "<option value=$Avdeling_id2>$Avdeling_navn2</option>";
-        }
-        echo "</select>";
-        ?>
-        <!-- Knapp for å lagre data i databasen -->
-        <button name="lagre" class="lagre">Lagre</button>
-        <br>
-        <br>
-        <br>
-        <!-- input felt og knapp for å lage ny avdeling -->
-        <input type="text" name="ny_avdeling" class='data' placeholder="Ny avdeling">
-        <button name="lagre_ny_avdeling" class="lagre">Lagre</button>
-        <br>
-        <br>
-        <br>
-        <!-- input felt og knapp for å slette avdeling -->
-        <?php
-        echo "<select class='data' name='slett_avdeling'>";
-        echo "<option value=''>Velg avdeling</option>";
-        $sql3 = "SELECT * FROM avdelinger";
-        $resultat3 = $kobling->query($sql3);
-        while ($rad = $resultat3->fetch_assoc()) {
-            $Avdeling_id3 = $rad["avdeling_id"];
-            $Avdeling_navn3 = $rad["avdeling_navn"];
-            echo "<option value=$Avdeling_id3>$Avdeling_navn3</option>";
-        }
-        echo "</select>";
-        ?>
-        <button name="slett_avdeling_knapp" class="slett_avdeling_knapp">Slett avdeling</button>
-
-    </form>
+                <!-- Velg en avdeling -->
+                <?php
+                echo "<select class='lage_ny_ansatte' name='avdeling'>";
+                echo "<option value=''>Velg avdeling</option>";
+                $sql2 = "SELECT * FROM avdelinger";
+                $resultat2 = $kobling->query($sql2);
+                while ($rad = $resultat2->fetch_assoc()) {
+                    $Avdeling_id2 = $rad["avdeling_id"];
+                    $Avdeling_navn2 = $rad["avdeling_navn"];
+                    echo "<option value=$Avdeling_id2>$Avdeling_navn2</option>";
+                }
+                echo "</select>";
+                ?>
+                <!-- Knapp for å lagre data i databasen -->
+                <button name="lagre" class="lagre_ny_ansatte">Lagre</button>
+            </div>
+            <div id="lage_ny_avdeling">
+                <!-- input felt og knapp for å lage ny avdeling -->
+                <h1 class="avdeling_tittel">Lag ny avdeling</h1>
+                <input type="text" name="ny_avdeling" class='lage_ny_avdeling' placeholder="Ny avdeling">
+                <button name="lagre_ny_avdeling" class="lagre_ny_avdeling">Lagre</button>
+            </div>
+            <div id="slett_avdeling">
+                <!-- input felt og knapp for å slette avdeling -->
+                <h1 class="slett_avdeling_tittel">Slett avdeling</h1>
+                <?php
+                echo "<select class='slett_avdeling' name='slett_avdeling'>";
+                echo "<option value=''>Velg avdeling</option>";
+                $sql3 = "SELECT * FROM avdelinger";
+                $resultat3 = $kobling->query($sql3);
+                while ($rad = $resultat3->fetch_assoc()) {
+                    $Avdeling_id3 = $rad["avdeling_id"];
+                    $Avdeling_navn3 = $rad["avdeling_navn"];
+                    echo "<option value=$Avdeling_id3>$Avdeling_navn3</option>";
+                }
+                echo "</select>";
+                ?>
+                <button name="slett_avdeling_knapp" class="slett_avdeling_knapp">Slett avdeling</button>
+            </div>
+        </form>
+    </div>
 
 </body>
 
